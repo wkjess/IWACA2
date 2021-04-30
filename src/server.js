@@ -4,7 +4,7 @@ const morgan = require('morgan');
 const app = express();
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb+srv://Anacct:ana@cluster0-mmo49.mongodb.net/test?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://Jess:iwa@cluster0.yva3d.mongodb.net/IWACA2?retryWrites=true&w=majority', {
 
     useNewUrlParser: true,
     useUnifiedTopology:true
@@ -14,7 +14,7 @@ mongoose.connect('mongodb+srv://Anacct:ana@cluster0-mmo49.mongodb.net/test?retry
 
 const indexRoutes = require('./routes/index');
 
-app.set('port' , process.env.PORT || 3310);
+app.set('port' , process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.set ('view engine' , 'ejs');
 
