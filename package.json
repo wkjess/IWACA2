@@ -1,7 +1,7 @@
 {
   "name": "iwaca2",
   "version": "1.0.0",
-  "description": "A single page of Node.js",
+  "description": "A single page use of Node.js and MongoDB",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
