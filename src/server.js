@@ -3,11 +3,11 @@ const express = require ('express');
 const morgan = require('morgan');
 const app = express();
 const mongoose = require('mongoose');
-const dotenv = require("dotenv");
+//const dotenv = require("dotenv");
 
-const dbURI = process.env.DB_URL;
+//const dbURI = process.env.DB_URL;
 
-mongoose.connect(dbURI, {
+mongoose.connect('mongodb+srv://Jess:iwa@cluster0.yva3d.mongodb.net/IWACA2?retryWrites=true&w=majority', {
 
     useNewUrlParser: true,
     useUnifiedTopology:true
@@ -17,7 +17,7 @@ mongoose.connect(dbURI, {
 
 const indexRoutes = require('./routes/index');
 
-dotenv.config();
+//dotenv.config();
 
 app.set('port' , process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
