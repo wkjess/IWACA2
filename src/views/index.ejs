@@ -1,0 +1,87 @@
+<!-- This page is a simple tools to record a list of musician details -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset= "utf-8">
+<title>My Music Collection - Home Page</title>
+
+<!--Bootstrap 4 cdn-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<nav class="navbar navbar-dark bg-dark mb-4">
+<a href="/index" class="navbar-brand">Home</a>
+<a href="/documentation" class="navbar-brand">About Musician List</a>
+</nav>
+
+</head>
+<body>
+<!--REFERENCE FOR THIS EJS FILE: https://github.com/FaztWeb/express-mongodb-crud-->
+<h1>Find a List OF Musician Across The World</h1><br>
+<br>
+<p>This is a simple tool to allow you to add, edit, delete and update the musician details</p><br><br>
+<br>
+<!--Enter the musician details in below for m-->
+<div class= "container">
+    <div class ="row">
+        <div class="col-md-5">
+        <div class ="card bg-light mb-3">
+            <div class="card-body">
+            <form action="/add" method="POST">
+            <div class= "form-group">
+             <input type="text" name="name" placeholder="Enter Musician Name:" class="form-control">
+            </div>
+            <div class = "form-group">
+             <textarea name="description" cols="100" placeholder="Type of Instruments:" class="form-control" ></textarea>
+            </div>
+            <div class= "form-group">
+             <input type="text" name="genre" placeholder="Enter Genre Type:" class="form-control">
+            </div>
+            <div class= "form-group">
+             <input type="text" name="year" placeholder="Enter Year of Release:" class="form-control">
+            </div>
+            <div class= "form-group">
+             <input type="text" name="continental" placeholder="Enter Which Continental:" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success btn-block">Add New Musician</button>
+            </form>  
+            </div>
+
+<div class="col-md-7">
+
+<table class="table table-bordered table-hover">
+   <thead>
+    <tr>
+    <th>The Musician Details</th>
+    <th>Mucisian Name</th>
+    <th>Type of Instruments</th>
+    <th>Genre</th>
+    <th>Year of Release</th>
+    <th>Continental</th>
+
+    <th>View list of musician details on below table</th>
+
+    </tr>
+   </thead>
+   <tbody>
+    <%for (var i=0; i < musics.length; i++){ %>
+    <tr>
+    <td> <%= i + 1 %>  </td>
+    <td> <%= musics[i].name %></td>
+    <td> <%= musics[i].description %></td>
+    <td> <%= musics[i].genre %></td>
+    <td> <%= musics[i].year %></td>
+    <td> <%= musics[i].continental %></td>
+
+    <td> 
+        
+        <a href= "/delete/<%= musics[i]._id%> " class= "btn btn-danger">Delete Selected Musician<a>
+        <a href ="/edit/<%= musics[i]._id %>" class="btn btn-info">Update Selected Musician<a>
+    </td>
+    </tr>
+   <% }%>
+   </tbody>
+  </table>
+</div>
+</div>
+</div>
+</body>
+</html>

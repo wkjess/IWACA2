@@ -1,0 +1,53 @@
+<!-- This page is responding of edit / update on data -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset= "utf-8">
+<title>My Musician Collection - Home Page</title>
+
+<!--Bootstrap 4 cdn-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<nav class="navbar navbar-dark  bg-dark mb-4">
+<a href="/" class="navbar-brand">My Musician Collection - Update The Musician Details</a>
+</nav>
+</head>
+<body>
+
+<!--REFERENCE FOR THIS EJS FILE: https://github.com/FaztWeb/express-mongodb-crud-->
+<h2>Use below form to edit / update the musician details</h2>
+
+<p>Enter musician new details and click save button</p><br><br>
+<div class = "container">
+    <div class="row">
+        <!--A form fields to allow user to enter new details -->
+        <div class="col-md-5 offset md-3">
+        
+           <div class ="card">
+            <div class ="card-body">
+            <form action="/edit/<%= music._id %>" method="POST">
+                <div class = "form-group">
+                    <input type="text" name="name" placeholder="Enter New Name:" class="form-control" value = "<%= music.name %>">
+                </div>
+                <div class = "form-group">
+                    <textarea name="description" cols= "100" class="form-control" placeholder="New Description:"><%= music.description %>
+                    </textarea>
+                </div>
+                <div class = "form-group">
+                    <input type="text" name="genre" placeholder="Enter New Genre:" class="form-control" value = "<%= music.genre %>">
+                </div>
+                <div class = "form-group">
+                    <input type="text" name="year" placeholder="Enter New Year:" class="form-control" value = "<%= music.year %>">
+                </div>
+                <div class = "form-group">
+                    <input type="text" name="continental" placeholder="Enter New Continental:" class="form-control" value = "<%= music.continental %>">
+                </div>
+
+            <button type="submit" class= "btn btn-info btn-block">Save Musician</button>
+            </form>  
+            </div>
+        </div>
+        </div>
+        </div>
+        </div>
+    </body>
+    </html>    
