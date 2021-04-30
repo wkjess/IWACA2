@@ -1,0 +1,19 @@
+{
+  "name": "iwaca2",
+  "version": "1.0.0",
+  "description": "A single page of Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wkjess/IWACA2.git"
+  },
+  "author": "Kim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wkjess/IWACA2/issues"
+  },
+  "homepage": "https://github.com/wkjess/IWACA2#readme"
+}
