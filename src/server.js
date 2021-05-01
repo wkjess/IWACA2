@@ -6,8 +6,9 @@ const app = express();
 const mongoose = require('mongoose');
 const dotenv = require("dotenv");
 dotenv.config();
-
-const dbURI = process.env.DB_HOST || 'mongodb://localhost:2017/IWACA2';
+const port = process.env.PORT || 3000;
+//const dbURI = process.env.DB_HOST || 'mongodb://localhost:2017/IWACA2';
+const dbURI = process.env.DB_URL;
 
 module.exports.conn = conn = () => {
     mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
@@ -15,7 +16,7 @@ module.exports.conn = conn = () => {
         .catch((err) => console.log(err))
 }
 
-mongoose.connect('mongodb+srv://Jess:iwa@cluster0.yva3d.mongodb.net/IWACA2?retryWrites=true&w=majority', {
+mongoose.connect(dbURI, {
 
     useNewUrlParser: true,
     useUnifiedTopology:true
