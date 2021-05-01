@@ -2,10 +2,18 @@ const path = require('path');
 const express = require ('express');
 const morgan = require('morgan');
 const app = express();
-const mongoose = require('mongoose');
-//const dotenv = require("dotenv");
 
-//const dbURI = process.env.DB_URL;
+const mongoose = require('mongoose');
+const dotenv = require("dotenv");
+dotenv.config();
+
+const dbURI = process.env.DB_HOST || 'mongodb://localhost:2017/IWACA2';
+
+module.exports.conn = conn = () => {
+    mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
+        .then((result) => console.log('connected to mongoDB'))
+        .catch((err) => console.log(err))
+}
 
 mongoose.connect('mongodb+srv://Jess:iwa@cluster0.yva3d.mongodb.net/IWACA2?retryWrites=true&w=majority', {
 
@@ -16,8 +24,6 @@ mongoose.connect('mongodb+srv://Jess:iwa@cluster0.yva3d.mongodb.net/IWACA2?retry
     .catch(e => console.log(e));
 
 const indexRoutes = require('./routes/index');
-
-//dotenv.config();
 
 app.set('port' , process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
